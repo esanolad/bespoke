@@ -1,16 +1,23 @@
-<button mat-button>Home</button>
-<button mat-button [matMenuTriggerFor]="customer">customer </button>
-<button mat-button [matMenuTriggerFor]="measurement">measurement </button>
-<button mat-button>Reports</button>
+<div class="mat-app-background basic-container">
+  <button mat-button>Home</button>
+  <button mat-button [matMenuTriggerFor]="customer">customer </button>
+  <button mat-button [matMenuTriggerFor]="measurement">measurement </button>
+  <button mat-button>Reports</button>
 
-<mat-menu #measurement="matMenu">
-  <button mat-menu-item >New Measuremnent</button>
-  <button mat-menu-item>Pending Measurements</button>
-  <button mat-menu-item>Delivered Measuremnent</button>
-</mat-menu>
+  <mat-menu #measurement="matMenu">
+    <button mat-menu-item routerLink="/newMeasurement">New</button>
+    <button mat-menu-item routerLink="/pendingMeasurement">Pending</button>
+    <button mat-menu-item routerLink="/">Delivered</button>
+  </mat-menu>
 
-<mat-menu #customer="matMenu">
-  <button mat-menu-item>New customer</button>
-  <button mat-menu-item>Customers Pending</button>
-</mat-menu>
+  <mat-menu #customer="matMenu">
+    <button mat-menu-item routerLink="/customer/12">view</button>
+    <button mat-menu-item routerLink="/newCustomer">New</button>
+    <button mat-menu-item routerLink="/pendingCustomer">Pending</button>
+  </mat-menu>
+</div>
+<div>
+  <router-outlet></router-outlet>
+
+</div>
 
