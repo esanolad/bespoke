@@ -7,9 +7,11 @@ import { PendingMeasurementComponent } from './pending-measurement/pending-measu
 import { MeasurementComponent } from './measurement/measurement.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+import { LoggedGuard } from "./logged.guard";
+
 const appRoutes:Routes=[
     {path:'customer/:id',component:CustomerComponent},
-    {path:'newCustomer',component:NewCustomerComponent},
+    {path:'newCustomer',canActivate: [LoggedGuard], component:NewCustomerComponent},
     {path:'pendingCustomer', component:PendingCustomerComponent},
     {path:'newMeasurement', component:MeasurementComponent},
     {path:'pendingMeasurement', component:PendingMeasurementComponent},
